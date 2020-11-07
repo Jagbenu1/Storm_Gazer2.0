@@ -23,8 +23,6 @@ class StormGazer extends Component {
     }
 
     inputChangedHandler = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
         this.setState({zipCode: event.target.value})
         console.log(this.state.zipCode);
         
@@ -36,24 +34,12 @@ class StormGazer extends Component {
     }
 
     render() {
-        let icon = '', data = '';
-        let form = (
-            <Input 
-                elementType='input'
-                value={this.state.zipCode}
-                changed={event => this.inputChangedHandler(event)}
-            />
-        );
-
-        
+        let icon = '', data = ''; 
         if(this.props.weather && this.props.location){
-            icon = this.props.weather.currently.icon;
-            // console.log(icon);
-            // console.log(this.props.weather.currently.summary);
-            // console.log(this.props.weather.currently.humidity);
             
+             icon = this.props.weather.currently.icon;
             
-            data = (
+             data = (
                 <InfoBlock>
                     <Location userCity={this.props.location.city} userState={this.props.location.state}/>
                     <Temperature  temp={Math.round(this.props.weather.currently.temperature)}/>
@@ -69,7 +55,11 @@ class StormGazer extends Component {
         return (
             <Background icon={ icon }>
                     <form onSubmit = {this.submitHandler}>
-                        {form}
+                        <Input 
+                            elementType='input'
+                            value={this.state.zipCode}
+                            changed={event => this.inputChangedHandler(event)}
+                        />
                         <Button btnType="success">Submit</Button>
                     </form>
                     {this.props.loading ? <Spinner/> : ''}
