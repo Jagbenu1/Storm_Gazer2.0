@@ -1,0 +1,12 @@
+.DailySummary {
+    font-size: 1.3em;
+}
+
+.DailySummary p {
+    line-height: 1.45em;
+}
+
+.DailySummary strong {
+    font-weight: bold;
+}
+

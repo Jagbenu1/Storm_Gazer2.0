@@ -1,0 +1,17 @@
+.CurrentWeather {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+.CurrentWeather p {
+    display: inline;
+    vertical-align: center;
+    font-size: 1.25em;
+}
+
+.CurrentWeather img {
+    display: inline;
+    /* background-color: teal; */
+}
