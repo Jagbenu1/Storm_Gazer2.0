@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './Background.module.css';
 
 const Background = ({ children, icon, imageIndex }) => {
@@ -78,4 +78,4 @@ const Background = ({ children, icon, imageIndex }) => {
     );
 }
 
-export default (Background);
+export default Background;
