@@ -72,7 +72,7 @@ class StormGazer extends Component {
                         <Button btnType="success">Submit</Button>
                     </form>
                     {this.props.loading ? <Spinner/> : ''}
-                    {this.props.location && this.props.weather ? data : ''}
+                    {this.props.loading ? '' : (this.props.location && this.props.weather ? data : '')}
                     {/* {this.props.location && this.props.weather ? data : ''} */}
             </Background>
         )
