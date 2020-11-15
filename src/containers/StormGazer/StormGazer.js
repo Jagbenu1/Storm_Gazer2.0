@@ -19,7 +19,11 @@ import InfoBlock from '../../components/InfoBlock/InfoBlock';
 class StormGazer extends Component {
 
     state = {
-        zipCode: ''
+        zipCode: '',
+        randomImageIndex: ''
+    }
+    componentDidMount() {
+        this.imageIndex();
     }
 
     inputChangedHandler = (event) => {
@@ -28,9 +32,14 @@ class StormGazer extends Component {
         
     }
 
+    imageIndex = () => {
+        this.setState({randomImageIndex: Math.round(Math.random() * 4)});
+    }
+
     submitHandler = (event) => {
         event.preventDefault();
         this.props.onWeather(this.state.zipCode)
+        this.imageIndex();
     }
 
     render() {
@@ -53,7 +62,7 @@ class StormGazer extends Component {
         
         
         return (
-            <Background icon={ icon }>
+            <Background icon={ icon } imageIndex={this.state.randomImageIndex}>
                     <form onSubmit = {this.submitHandler}>
                         <Input 
                             elementType='input'
@@ -63,7 +72,7 @@ class StormGazer extends Component {
                         <Button btnType="success">Submit</Button>
                     </form>
                     {this.props.loading ? <Spinner/> : ''}
-                    {this.props.location && this.props.weather ? data : ''}
+                    {this.props.loading ? '' : (this.props.location && this.props.weather ? data : '')}
                     {/* {this.props.location && this.props.weather ? data : ''} */}
             </Background>
         )
