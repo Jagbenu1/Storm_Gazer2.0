@@ -1,3 +1,5 @@
+This project allows only a limited number of API calls from the ZipCodeAPI every hour. The project will not return any information when this limit is reached and the console will show an error from the API in question.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
