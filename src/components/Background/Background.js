@@ -4,7 +4,6 @@ import classes from './Background.module.css';
 const Background = ({ children, icon, imageIndex }) => {
 
     const backgroundSwitch = () => {
-
         let keys = null;
         let backgroundURL = null;
         
@@ -70,11 +69,11 @@ const Background = ({ children, icon, imageIndex }) => {
     }
 
     return (
-        <>
+        
             <div className={classes.Background} style={{ backgroundImage: backgroundSwitch() }}>
                 {children}
             </div>
-        </>
+        
     );
 }
 
